@@ -1,3 +1,10 @@
+import {
+  ClerkProvider,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -16,7 +23,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-dark-2`}>{children}</body>
+      <ClerkProvider
+        appearance={{
+          layout: {
+            logoImageUrl: "/icons/logo.svg",            socialButtonsVariant: "iconButton"
+          },
+          variables: {
+            colorText: "#fff",
+            colorPrimary: "#0E78F9",
+            colorBackground: "#1C1F2E",
+            colorInputBackground: "#252A41",
+            colorInputText: "#FFF",
+          },
+        }}
+      >
+        <body className={`${inter.className} bg-dark-2`}>{children}</body>
+      </ClerkProvider>
     </html>
   );
 }
