@@ -1,6 +1,15 @@
 import { ReactNode } from "react";
 import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "VINEXT",
+  description: "Video calling app",
+  icons: {
+    icon: "/icons/logo.svg"
+  }
+};
 
 export default function HomeLayout({ children }: { children: ReactNode }) {
   return (
